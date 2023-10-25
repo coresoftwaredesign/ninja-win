@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ninja Win</string>
+    <string name="air_horn_button_desc">Air Horn</string>
+    <string name="background_image_description">Ninja Athlete</string>
+</resources>

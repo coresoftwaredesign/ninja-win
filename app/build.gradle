@@ -1,0 +1,65 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+}
+
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
+
+android {
+    signingConfigs {
+        config {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.coresoftwaredesign.ninjawin"
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 7
+        versionName "1.0.7"
+
+        // testing on Firebase Test Lab, etc. Disables Ads. Set "false" for production release
+        buildConfigField "boolean", "ENABLE_TEST_BUILD", "false"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    namespace 'com.coresoftwaredesign.ninjawin'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+
+    // Add the Firebase Crashlytics SDK
+    implementation 'com.google.firebase:firebase-crashlytics:18.5.0'
+    // Add the Google Analytics SDK
+    implementation 'com.google.firebase:firebase-analytics:21.4.0'
+
+    // Google Ads
+    implementation 'com.google.android.gms:play-services-ads:22.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    // debugging
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.12'
+}
+
+secrets {
+    // Change the properties file from the default "local.properties" in your root project
+    // to another properties file in your root project.
+    propertiesFileName 'secrets.properties'
+    // A properties file containing default secret values. This file can be checked in version
+    // control.
+    defaultPropertiesFileName = 'secrets.defaults.properties'
+}
