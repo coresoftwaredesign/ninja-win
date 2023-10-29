@@ -85,7 +85,7 @@ A skilled team with development, UX and graphics design skills is still required
 * Current large language models are unable to combine all the features required to create production-ready code in a single prompt. Application integration still requires a developer to assemble the components into a finished application.
 * Most images will require some manual assembly to create a finished result.
 * We were unable to find a suitable AI tool for generating audio. The audio file for the app was created from open-source audio clips and then mixed with a conventional DAW.
-* AI tools were limited to seaching when applied to administrative tasks such as Google Play Console application setup, release management, play store setup, etc.
+* AI tools were limited to searching when applied to administrative tasks such as Google Play Console application setup, release management, play store setup, etc.
 * Results are not reproducible. Different results are returned depending on the date and time prompts are run. AI's are continually updated and tuned, making it impossible to rerun old prompts to make minor adjustments.
 
 This project is licensed under the terms of the MIT license. See the LICENSE.md file for more info.
