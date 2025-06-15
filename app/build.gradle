@@ -20,10 +20,10 @@ android {
     compileSdk 35
     defaultConfig {
         applicationId "com.coresoftwaredesign.ninjawin"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 35
-        versionCode 9
-        versionName "1.0.9"
+        versionCode 10
+        versionName "1.0.10"
 
         // testing on Firebase Test Lab, etc. Disables Ads. Set "false" for production release
         buildConfigField "boolean", "ENABLE_TEST_BUILD", "false"
@@ -43,15 +43,16 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation("androidx.activity:activity:1.10.1")
 
     // Add the Firebase Crashlytics SDK
-    implementation 'com.google.firebase:firebase-crashlytics:19.4.1'
+    implementation 'com.google.firebase:firebase-crashlytics:19.4.4'
     // Add the Google Analytics SDK
-    implementation 'com.google.firebase:firebase-analytics:22.3.0'
+    implementation 'com.google.firebase:firebase-analytics:22.4.0'
 
     // Google Ads
-    implementation 'com.google.android.gms:play-services-ads:23.6.0'
+    implementation 'com.google.android.gms:play-services-ads:24.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
 
     // debugging
